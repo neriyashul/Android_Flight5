@@ -8,7 +8,7 @@ import java.io.IOException;
 public class MyModel implements IModel {
     private IClient client;
 
-    MyModel(IClient c){
+    public MyModel(IClient c){
         this.client = c;
     }
 

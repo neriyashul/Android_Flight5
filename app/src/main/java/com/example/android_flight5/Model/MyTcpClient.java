@@ -26,6 +26,7 @@ public class MyTcpClient implements IClient {
     public void send(String msg) throws IOException {
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
         outToServer.writeBytes(msg);
+        outToServer.flush();
     }
 
 
