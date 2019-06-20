@@ -1,83 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="189dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="190dp"
-        android:layout_marginLeft="190dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="ViewModel"
+            type="com.example.android_flight5.view_model.MainViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
 
-        android:text="@string/ip"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.058" />
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/holo_blue_bright">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-
-        android:text="@string/port"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.176" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="178dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/editText3"
-        app:layout_constraintHorizontal_bias="0.961"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RelativeLayout
+            android:id="@+id/screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:orientation="horizontal">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="168dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="121dp"
-        android:layout_marginLeft="121dp"
-        android:layout_marginTop="469dp"
-        android:layout_marginEnd="122dp"
-        android:onClick="onClick"
-        android:layout_marginRight="122dp"
-        android:layout_marginBottom="162dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/IP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginLeft="90dp"
+                android:text="@string/ip"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/Port"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_alignEnd="@id/IP"
+                android:layout_alignRight="@id/IP"
+                android:layout_below="@id/IP"
+                android:text="@string/port"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+
+
+            <EditText
+                android:background="@android:color/white"
+                android:id="@+id/IPEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/IP"
+                android:layout_toRightOf="@id/IP"
+                android:layout_toEndOf="@id/IP"
+                android:layout_alignBottom="@id/IP"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:hint="Enter ip . . ."
+                android:gravity="bottom"
+                android:inputType="textPersonName"
+                android:textSize="25sp"
+                android:text="@={ViewModel.message}" />
+
+            <EditText
+                android:background="@android:color/white"
+                android:id="@+id/PortEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/Port"
+                android:layout_toRightOf="@id/Port"
+                android:layout_toEndOf="@id/Port"
+                android:layout_alignBottom="@id/Port"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="0dp"
+
+                android:textSize="25sp"
+                android:gravity="bottom"
+                android:hint="Enter port . . ."
+                android:inputType="textPersonName"
+                android:text="@={ViewModel.message}" />
+
+
+            <Button
+                android:id="@+id/btnConnect"
+                android:background="@android:color/holo_orange_light"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="60dp"
+                android:text="@string/connect"
+                android:textSize="30dp"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</layout>

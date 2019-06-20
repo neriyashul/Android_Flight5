@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.android_flight5.JoystickActivity;
 
-public class LoginViewModel {
+public class ConnectViewModel {
     public void onClick(View v) {
         // Code here executes on main thread after user presses button
         Log.i("shilo", "button had clicked");
