@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.android_flight5.Model.Interfaces.IModel;
+import com.example.android_flight5.Model.ModelFactory;
 import com.example.android_flight5.Model.MyModel;
 import com.example.android_flight5.Model.MyTcpClient;
 
 public class JoystickActivity extends AppCompatActivity implements JoystickView.JoystickListener {
-    IModel model = new MyModel(new MyTcpClient());
+    IModel model = ModelFactory.getModel("MyModel","MyClient");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

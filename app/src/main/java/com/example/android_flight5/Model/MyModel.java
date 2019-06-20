@@ -8,7 +8,14 @@ import java.io.IOException;
 public class MyModel implements IModel {
     private IClient client;
 
+    public MyModel(){}
+
     public MyModel(IClient c){
+        this.client = c;
+    }
+
+    @Override
+    public void setClient(IClient c) {
         this.client = c;
     }
 
