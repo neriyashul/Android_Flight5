@@ -22,9 +22,9 @@ public class JoystickActivity extends AppCompatActivity implements JoystickView.
         // Get the Intent that started this activity and extract the IModel.
         Intent intent = getIntent();
         String ip = intent.getStringExtra("ip");
-        int port = intent.getIntExtra("port", -1);
+        String port = intent.getStringExtra("port");
 
-        model.connectClient(ip, port);
+        //model.connectClient(ip, port);
 
     }
 

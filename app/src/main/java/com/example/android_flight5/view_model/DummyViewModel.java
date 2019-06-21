@@ -1,6 +1,6 @@
 package com.example.android_flight5.view_model;
 
-public class MainViewModel {
+public class DummyViewModel {
 
     private String name;
     private String type;

@@ -8,7 +8,7 @@
     <data>
         <variable
             name="ViewModel"
-            type="com.example.android_flight5.view_model.MainViewModel" />
+            type="com.example.android_flight5.view_model.ConnectViewModel" />
     </data>
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="45dp"
-            app:srcCompat="@drawable/flightGear" />
+            app:srcCompat="@drawable/flight_gear" />
 
         <com.example.android_flight5.JoystickView
             android:id="@+id/joystick"
