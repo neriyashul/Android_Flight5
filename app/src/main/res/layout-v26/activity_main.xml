@@ -8,7 +8,7 @@
     <data>
         <variable
             name="ViewModel"
-            type="com.example.android_flight5.view_model.ConnectViewModel" />
+            type="com.example.android_flight5.view_model.InitViewModel" />
 
 
     </data>

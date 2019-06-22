@@ -8,8 +8,9 @@ import android.view.View;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.android_flight5.JoystickActivity;
+import com.example.android_flight5.MainActivity;
 
-public class ConnectViewModel {
+public class InitViewModel {
 
 
     private String ip;
@@ -18,7 +19,6 @@ public class ConnectViewModel {
 
 
     /** Called when the user touches the button */
-        /** Called when the user touches the button */
     public void onClick(View view) {
         Intent intent = new Intent(view.getContext(), JoystickActivity.class);
         intent.putExtra("ip", ip);

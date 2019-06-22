@@ -39,7 +39,7 @@ public class MyModel implements IModel {
 
     @Override
     public void send(String msg) {
-        msg += System.getProperty("line.separator");
+        msg += "\r\n";
         try {
             this.client.send(msg);
         } catch (IOException e) {

@@ -1,6 +1,7 @@
 package com.example.android_flight5;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,35 +11,33 @@ import com.example.android_flight5.Model.Interfaces.IModel;
 import com.example.android_flight5.Model.ModelFactory;
 import com.example.android_flight5.Model.MyModel;
 import com.example.android_flight5.Model.MyTcpClient;
+import com.example.android_flight5.databinding.ActivityMainBinding;
+import com.example.android_flight5.view_model.JoystickViewModel;
+
 
 public class JoystickActivity extends AppCompatActivity implements JoystickView.JoystickListener {
     IModel model = ModelFactory.getModel("MyModel","MyClient");
+    JoystickViewModel vm = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //final ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_joystick);
         setContentView(R.layout.activity_joystick);
-
-        // Get the Intent that started this activity and extract the IModel.
-        Intent intent = getIntent();
-        String ip = intent.getStringExtra("ip");
-        String port = intent.getStringExtra("port");
-
-        //model.connectClient(ip, port);
-
+        vm = new JoystickViewModel();
+        vm.onCreate(getIntent());
+        //binding.setViewModel(vm);
     }
 
     @Override
     protected void onDestroy() {
-        model.disconnectClient();
+        vm.onDestroy();
         super.onDestroy();
     }
 
 
     @Override
     public void onJoystickMoved(float xPercent, float yPercent, int id) {
-        if (id == R.id.joystick) {
-            Log.d("Joystick", "X percent: " + xPercent + " Y percent: " + yPercent);
-        }
+        vm.onJoystickMoved(xPercent, yPercent);
     }
 }
